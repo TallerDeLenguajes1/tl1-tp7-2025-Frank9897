@@ -4,13 +4,13 @@ namespace esEmpleado
 {
     class Empleado
     {
-        private string? nombre;
-        private string? apellido;
+        private string nombre;
+        private string apellido;
         private DateTime fechaDeNacimiento;
         private char estadocivil;
         private DateTime fechaingreso;
         private double basico;
-        private string? cargo;
+        private string cargo;
 
         public Empleado(string nombre, string apellido, DateTime fechaDeNacimiento, char estadocivil, DateTime fechaingreso, double basico, string cargo)
         {
@@ -33,18 +33,20 @@ namespace esEmpleado
         public int Antiguedad { get => antiguedad; set => antiguedad = value; }
         public int Edad { get => edad; set => edad = value; }
         public int Jubilacion { get => jubilacion; }
-        public double Salario { get => salario;  }
-        public double Adiciona { get => adicional;  }
+        public double Salario { get => salario; }
+        public double Adiciona { get => adicional; }
 
         private int antiguedad;
         private int edad;
         private int jubilacion;
         private double salario;
-        private double adicional=0;
+        private double adicional = 0;
+
         public void calcAntiguedad(DateTime fechaingreso)
         {
             antiguedad = DateTime.Now.Year - fechaingreso.Year;
         }
+
         public void calcEdad(DateTime fechadenacimiento)
         {
             edad = DateTime.Now.Year - fechadenacimiento.Year;
@@ -52,25 +54,30 @@ namespace esEmpleado
 
         public void calcJubilacion()
         {
-            jubilacion = 65-(DateTime.Now.Year-fechaDeNacimiento.Year);
+            jubilacion = 65 - (DateTime.Now.Year - fechaDeNacimiento.Year);
         }
+
         public void calcSalario(double basico, int antiguedad, char estadocivil, string cargo)
         {
             if (antiguedad > 0 && antiguedad < 21)
             {
-                adicional += basico*(antiguedad/100);
-            }else
+                adicional += basico * (antiguedad / 100.0);
+            }
+            else
             {
                 adicional += basico * 0.25;
             }
-            if (cargo.ToLower()=="ingeniero" || cargo.ToLower()=="especialista")
+
+            if (cargo.ToLower() == "ingeniero" || cargo.ToLower() == "especialista")
             {
-                adicional+= basico * 0.50;
+                adicional += basico * 0.50;
             }
+
             if (estadocivil == 'c')
             {
-                basico += 150000; 
+                basico += 150000;
             }
+
             salario = basico + adicional;
         }
     }
