@@ -13,14 +13,20 @@ Console.WriteLine($"Ingrese fecha de ingreso de {apellido} {nombre}");
 DateTime fechaingreso = DateTime.Parse(Console.ReadLine());
 Console.WriteLine($"Ingrese sueldo basico de {apellido} {nombre}");
 double basico = double.Parse(Console.ReadLine());
-Console.WriteLine($"Ingrese cargo de {apellido} {nombre}");
-string cargo = Console.ReadLine();
 
-Empleado nuevo = new Empleado(nombre, apellido, fechaDeNacimiento, estadocivil, fechaingreso, basico, cargo);
+Console.WriteLine("Seleccione cargo:");
+foreach (var cargo in Enum.GetValues(typeof(Cargos)))
+{
+    Console.WriteLine($"{(int)cargo + 1} - {cargo}");
+}
+int cargoSeleccionado = int.Parse(Console.ReadLine());
+Cargos cargoEnum = (Cargos)cargoSeleccionado;
+
+Empleado nuevo = new Empleado(nombre, apellido, fechaDeNacimiento, estadocivil, fechaingreso, basico, cargoEnum);
 
 nuevo.calcAntiguedad(fechaingreso);
 nuevo.calcEdad(fechaDeNacimiento);
 nuevo.calcJubilacion();
-nuevo.calcSalario(basico, nuevo.Antiguedad, estadocivil, cargo);
+nuevo.calcSalario(basico, nuevo.Antiguedad, estadocivil, cargoEnum);
 
 Console.WriteLine($"EMPLEADO CARGADO\nNombre: {nuevo.Nombre}\nApellido: {nuevo.Apellido}\n Edad: {nuevo.Edad}\nFecha de nacimiento: {nuevo.FechaDeNacimiento}\nSalario NETO: {nuevo.Salario}");
