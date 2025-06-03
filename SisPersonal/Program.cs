@@ -29,4 +29,4 @@ nuevo.calcEdad(fechaDeNacimiento);
 nuevo.calcJubilacion();
 nuevo.calcSalario(basico, nuevo.Antiguedad, estadocivil, cargoEnum);
 
-Console.WriteLine($"EMPLEADO CARGADO\nNombre: {nuevo.Nombre}\nApellido: {nuevo.Apellido}\n Edad: {nuevo.Edad}\nFecha de nacimiento: {nuevo.FechaDeNacimiento}\nSalario NETO: {nuevo.Salario}");
+Console.WriteLine($"EMPLEADO CARGADO\nNombre: {nuevo.Nombre}\nApellido: {nuevo.Apellido}\n Edad: {nuevo.Edad}\nFecha de nacimiento: {nuevo.FechaDeNacimiento:dd/MM/yyyy}\nSalario NETO: ${nuevo.Salario}");

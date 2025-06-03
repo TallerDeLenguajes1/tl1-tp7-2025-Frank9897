@@ -70,21 +70,21 @@ namespace esEmpleado
         {
             if (antiguedad > 0 && antiguedad < 21)
             {
-                adicional += basico * (antiguedad / 100.0);
+                adicional = basico * (antiguedad / 100.0);
             }
             else
             {
-                adicional += basico * 0.25;
+                adicional = basico * 0.25;
             }
 
             if (cargo == Cargos.Ingeniero || cargo == Cargos.Especialista)
             {
-                adicional += basico * 0.50;
+                adicional = adicional * 1.50;
             }
 
             if (estadocivil == 'c')
             {
-                basico += 150000;
+                adicional += 150000;
             }
 
             salario = basico + adicional;
