@@ -20,7 +20,7 @@ foreach (var cargo in Enum.GetValues(typeof(Cargos)))
     Console.WriteLine($"{(int)cargo + 1} - {cargo}");
 }
 int cargoSeleccionado = int.Parse(Console.ReadLine());
-Cargos cargoEnum = (Cargos)cargoSeleccionado;
+Cargos cargoEnum = (Cargos)(cargoSeleccionado-1);
 
 Empleado nuevo = new Empleado(nombre, apellido, fechaDeNacimiento, estadocivil, fechaingreso, basico, cargoEnum);
 
