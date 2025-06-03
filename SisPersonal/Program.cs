@@ -7,9 +7,9 @@ for (int i = 0; i < empleados.Length; i++)
 {
     Console.WriteLine($"Ingrese los datos del empleado N°{i+1}");
     Console.WriteLine("Ingrese nombre de empleado");
-    string? nombre = Console.ReadLine();
+    string nombre = Console.ReadLine();
     Console.WriteLine($"Ingrese apellido de {nombre}");
-    string? apellido = Console.ReadLine();
+    string apellido = Console.ReadLine();
     Console.WriteLine($"Ingrese fecha de nacimiento de {apellido} {nombre}");
     DateTime fechaDeNacimiento = DateTime.Parse(Console.ReadLine());
     Console.WriteLine($"Ingrese estado civil de {apellido} {nombre}");
@@ -47,6 +47,7 @@ foreach (var empleado in empleados)
 Console.WriteLine($"Total de monto a pagar empleados: ${total}");
 
 Empleado jubilacionproxima = empleados[0];
+
 
 foreach (var empleado in empleados)
 {
